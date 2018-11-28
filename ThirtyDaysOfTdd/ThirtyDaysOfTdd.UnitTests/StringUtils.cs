@@ -8,6 +8,10 @@ namespace ThirtyDaysOfTdd.UnitTests
 	{
 		public int FindNumberOfOccurances(string sentenceToScan, string characterToScanFor)
 		{
+			if (characterToScanFor.Length != 1)
+			{
+				throw new ArgumentException();
+			}
 			var stringToCheckAsCharArray = sentenceToScan.ToCharArray();
 			var characterToCheckFor = Char.Parse(characterToScanFor);
 			var numberOfOccurances = 0;

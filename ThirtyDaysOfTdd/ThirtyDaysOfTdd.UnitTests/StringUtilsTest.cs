@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using NUnit.Framework;
 
 namespace ThirtyDaysOfTdd.UnitTests
@@ -30,6 +31,20 @@ namespace ThirtyDaysOfTdd.UnitTests
 			int result = stringUtils.FindNumberOfOccurances(sentenceToScan, characterToScanFor);
 
 			Assert.AreEqual(expectedResult, result);
+		}
+
+		[Test]
+		public void ShouldGetArgumentExceptionWhenCharacterToScanForIsLargerThanOneCharacter()
+		{
+			var sentenceToScan = "This text should throw an exception";
+			var characterToScanFor = "xx";
+			var stringUtils = new StringUtils();
+			
+			// Assert.That(() => stringUtils.FindNumberOfOccurances(sentenceToScan, characterToScanFor), Throws.ArgumentException);
+			Assert.Throws<ArgumentException>(delegate()
+			{
+				stringUtils.FindNumberOfOccurances(sentenceToScan, characterToScanFor);
+			});
 		}
 	}
 }
