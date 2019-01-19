@@ -4,9 +4,9 @@ namespace Mastermind.Service
 {
     public class GameInputValidator
     {
-        public bool isValid(int[] guess)
+        public bool IsValid(int[] guess)
         {
-			if (!inputOutofBounds(guess) || !inputNotUnique(guess))
+			if (!InputOutofBounds(guess) || !InputNotUnique(guess))
 				return false;
 
 			for (int i = 0; i < guess.Length; i++)
@@ -18,7 +18,7 @@ namespace Mastermind.Service
 			return true;
         }
 
-        private bool inputOutofBounds(int[] guess)
+        private bool InputOutofBounds(int[] guess)
         {
 			if (guess.Length > 4 || guess.Length < 4)
 				return false;
@@ -26,7 +26,7 @@ namespace Mastermind.Service
 			return true;
         }
 
-        private bool inputNotUnique(int[] guess)
+        private bool InputNotUnique(int[] guess)
         {
 			for (int i = 0; i < guess.Length; i++)
 			{
